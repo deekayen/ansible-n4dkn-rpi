@@ -1,5 +1,8 @@
 ---
 
+chrony_allow:
+  - 10/8
+  - 192.168/16
 chrony_maxsources: 1
 chrony_pool:
   - us.pool.ntp.org

@@ -6,6 +6,9 @@ rtcsync
 makestep 1 3
 
 # All this to add these lines
+{% for block in chrony_aloow %}
+allow {{ block }}
+{% endfor %}
 {% for pool in chrony_pool %}
 pool {{ pool }} iburst maxsources {{ chrony_maxsources }}
 {% endfor %}
