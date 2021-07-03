@@ -1,6 +1,8 @@
 # chrony
 
-Instructions from https://photobyte.org/raspberry-pi-stretch-gps-dongle-as-a-time-source-with-chrony-timedatectl/.
+Instructions:
+* https://photobyte.org/raspberry-pi-stretch-gps-dongle-as-a-time-source-with-chrony-timedatectl/
+* https://chrony.tuxfamily.org/doc/3.4/chrony.conf.html
 
 ```
 sudo apt -y install gpsd gpsd-clients python-gps chrony python-gi-cairo
@@ -13,10 +15,10 @@ sudo nano /etc/default/gpsd
 Add lines:
 
 ```
-START_DAEMON=”true”
-USBAUTO=”true”
-DEVICES=”/dev/ttyACM0″
-GPSD_OPTIONS=”-n”
+START_DAEMON="true"
+USBAUTO="true"
+DEVICES="/dev/ttyACM0"
+GPSD_OPTIONS="-n"
 ```
 
 ```
@@ -27,7 +29,7 @@ systemctl enable chronyd
 Validate:
 
 ```
-cgps – s
+cgps –s
 gpsmon -n
 ```
 
