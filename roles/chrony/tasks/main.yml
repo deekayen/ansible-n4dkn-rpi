@@ -13,8 +13,8 @@
     - enable chronyd
 
 - name: Copy gpsd configuration.
-  copy:
-    src: gpsd
+  template:
+    src: gpsd.j2
     dest: /etc/default/gpsd
     owner: root
     group: root
@@ -24,7 +24,7 @@
 
 - name: Copy chronyd configuration.
   copy:
-    src: chrony.conf
+    src: chrony.conf.j2
     dest: /etc/chrony/chrony.conf
     owner: root
     group: root

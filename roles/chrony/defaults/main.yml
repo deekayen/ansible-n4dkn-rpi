@@ -1,0 +1,9 @@
+---
+
+chrony_maxsources: 1
+chrony_pool:
+  - us.pool.ntp.org
+  - time.google.com
+  - time.cloudflare.com
+  - time.windows.com
+  - time.apple.com
