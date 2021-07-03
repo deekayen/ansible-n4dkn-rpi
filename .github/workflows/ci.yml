@@ -7,6 +7,10 @@ name: CI
     branches:
       - main
 
+defaults:
+  run:
+    working-directory: 'n4dkn-rpi4'
+
 jobs:
 
   lint:
@@ -15,6 +19,8 @@ jobs:
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
+        with:
+          path: 'n4dkn-rpi4'
 
       - name: Install test dependencies.
         run: python -m pip install --user ansible ansible-lint
