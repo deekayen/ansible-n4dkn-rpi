@@ -4,10 +4,8 @@
   service:
     name: gpsd
     enabled: true
-    state: restarted
 
 - name: enable chronyd
   service:
     name: chronyd
     enabled: true
-    state: restarted

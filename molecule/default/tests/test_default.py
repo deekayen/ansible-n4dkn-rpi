@@ -13,7 +13,6 @@ def test_chronyd_service(host):
     service = host.service("chronyd")
 
     assert service.is_enabled
-    assert service.is_running
 
 
 def test_gpsd_installed(host):
@@ -24,4 +23,3 @@ def test_gpsd_service(host):
     service = host.service("gpsd")
 
     assert service.is_enabled
-    assert service.is_running
