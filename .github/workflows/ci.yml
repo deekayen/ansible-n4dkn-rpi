@@ -25,7 +25,7 @@ jobs:
       - name: Lint ansible.
         run: ansible-lint
 
-# https://docs.github.com/en/free-pro-team@latest/actions/reference/specifications-for-github-hosted-runners#supported-software
+  # https://docs.github.com/en/free-pro-team@latest/actions/reference/specifications-for-github-hosted-runners#supported-software
   molecule:
     name: Molecule
     runs-on: ubuntu-20.04

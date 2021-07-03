@@ -5,12 +5,23 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
 
-def test_saltstack_installed(host):
-    assert host.package("firewalld").is_installed
+def test_chronyd_installed(host):
+    assert host.package("chronyd").is_installed
 
 
-def test_saltstack_service(host):
-    service = host.service("firewalld")
+def test_chronyd_service(host):
+    service = host.service("chronyd")
+
+    assert service.is_enabled
+    assert service.is_running
+
+
+def test_gpsd_installed(host):
+    assert host.package("gpsd").is_installed
+
+
+def test_gpsd_service(host):
+    service = host.service("gpsd")
 
     assert service.is_enabled
     assert service.is_running
