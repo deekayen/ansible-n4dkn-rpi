@@ -23,7 +23,7 @@
     - enable gpsd
 
 - name: Copy chronyd configuration.
-  copy:
+  template:
     src: chrony.conf.j2
     dest: /etc/chrony/chrony.conf
     owner: root
