@@ -1,0 +1,13 @@
+---
+
+- name: enable gpsd
+  service:
+    name: gpsd
+    enabled: yes
+    state: restarted
+
+- name: enable chronyd
+  service:
+    name: chronyd
+    enabled: yes
+    state: restarted

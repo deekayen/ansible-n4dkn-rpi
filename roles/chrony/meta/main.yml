@@ -1,0 +1,26 @@
+---
+
+galaxy_info:
+  role_name: chrony
+  author: David Norman
+  description: Setup time services using Diymall VK-172 GPS ublox 7020 based GPS dongle.
+
+  github_branch: main
+  issue_tracker_url: https://github.com/deekayen/ansible-n4dkn-rpi4/issues
+  license: BSD-3-Clause
+
+  min_ansible_version: 2.8
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+    - name: Debian
+      versions:
+        - buster
+
+  galaxy_tags:
+    - chrony
+    - ntp
+
+dependencies: []

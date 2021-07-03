@@ -1,0 +1,56 @@
+---
+
+name: CI
+'on':
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+
+      - name: Install test dependencies.
+        run: pip3 install ansible-lint
+
+      - name: Lint yamllint.
+        run: yamllint -f github -v --no-warnings .
+
+      - name: Lint ansible.
+        run: ansible-lint
+
+# https://docs.github.com/en/free-pro-team@latest/actions/reference/specifications-for-github-hosted-runners#supported-software
+  molecule:
+    name: Molecule
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        distro:
+          - debian10
+
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+        with:
+          path: 'n4dkn-rpi4'
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install test dependencies.
+        run: pip3 install ansible molecule[docker] docker testinfra
+
+      - name: Run Molecule tests.
+        run: molecule test
+        env:
+          PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'
+          MOLECULE_DISTRO: ${{ matrix.distro }}

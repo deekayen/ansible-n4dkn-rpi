@@ -1,0 +1,7 @@
+---
+
+- hosts: n4dkn-rpi4
+  become: true
+
+  roles:
+    - chrony
