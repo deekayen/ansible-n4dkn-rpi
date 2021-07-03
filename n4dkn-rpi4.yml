@@ -1,7 +1,12 @@
 ---
 
-- hosts: n4dkn-rpi4
+- hosts: all
   become: true
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt: update_cache=true cache_valid_time=600
+      when: ansible_os_family == 'Debian'
 
   roles:
     - chrony
