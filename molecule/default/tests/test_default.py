@@ -6,7 +6,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 def test_chronyd_installed(host):
-    assert host.package("chronyd").is_installed
+    assert host.package("chrony").is_installed
 
 
 def test_chronyd_service(host):
