@@ -9,6 +9,9 @@ makestep 1 3
 {% for block in chrony_allow %}
 allow {{ block }}
 {% endfor %}
+{% for server in chrony_server %}
+server {{ server }} iburst
+{% endfor %}
 {% for pool in chrony_pool %}
 pool {{ pool }} iburst maxsources {{ chrony_maxsources }}
 {% endfor %}

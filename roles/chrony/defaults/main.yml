@@ -5,8 +5,7 @@ chrony_allow:
   - 192.168/16
 chrony_maxsources: 1
 chrony_pool:
-  - us.pool.ntp.org
-  - time.google.com
   - time.cloudflare.com
-  - time.windows.com
-  - time.apple.com
+  - time.nist.gov
+chrony_server:
+  - time2.google.com
