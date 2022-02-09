@@ -1,0 +1,34 @@
+---
+
+- name: Install PHP dependencies.
+  apt:
+    name:
+      - apache2
+      - php7.4
+      - php7.4-apcu
+      - php7.4-curl
+      - php7.4-json
+      - php7.4-mbstring
+      - php7.4-simplexml
+      - php7.4-sqlite3
+  notify: restart apache2
+
+- name: Download rss-bridge.
+  ansible.builtin.unarchive:
+    src: https://github.com/RSS-Bridge/rss-bridge/archive/refs/heads/master.zip
+    dest: /var/www/html
+    remote_src: yes
+
+- name: Create a symbolic link
+  ansible.builtin.file:
+    src: /var/www/html/rss-bridge-master
+    dest: /var/www/html/rss-bridge
+    state: link
+
+- name: Let www-data write to the cache path.
+  ansible.builtin.file:
+    path: /var/www/html/rss-bridge/cache
+    state: directory
+    mode: 0775
+    owner: www-data
+    group: www-data

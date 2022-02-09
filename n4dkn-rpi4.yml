@@ -3,6 +3,9 @@
 - hosts: all
   become: true
 
+  vars:
+    ansible_user: pi
+
   handlers:
     - name: restart inetd
       service:
@@ -24,4 +27,14 @@
 
   roles:
     - chrony
-    - deekayen.meshchat
+    - rss-bridge
+    - role: deekayen.meshchat
+      vars:
+        local_meshchat_node: N4DKN-BM2XW-OMNI-204
+
+  tasks:
+    - name: Install unattended-upgrades.
+      apt:
+        name:
+          - unattended-upgrades
+          - apt-listchanges

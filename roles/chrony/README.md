@@ -5,7 +5,7 @@ Instructions:
 * https://chrony.tuxfamily.org/doc/3.4/chrony.conf.html
 
 ```
-sudo apt -y install gpsd gpsd-clients python-gps chrony python-gi-cairo
+sudo apt -y install gpsd gpsd-clients python3-gps chrony python3-gi-cairo
 ```
 
 ```
@@ -23,7 +23,7 @@ GPSD_OPTIONS="-n"
 
 ```
 systemctl enable gpsd
-systemctl enable chronyd
+systemctl enable chrony
 ```
 
 Validate:

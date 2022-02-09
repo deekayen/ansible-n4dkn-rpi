@@ -5,9 +5,9 @@
     name:
       - gpsd
       - gpsd-clients
-      - python-gps
+      - python3-gps
       - chrony
-      - python-gi-cairo
+      - python3-gi-cairo
   notify:
     - enable gpsd
     - enable chronyd
