@@ -7,5 +7,7 @@ chrony_maxsources: 1
 chrony_pool:
   - time.cloudflare.com
   - time.nist.gov
+  - us.pool.ntp.org
+  - time.google.com
 chrony_server:
-  - time2.google.com
+  - navobs1.gatech.edu
