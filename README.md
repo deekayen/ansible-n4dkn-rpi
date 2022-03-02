@@ -18,6 +18,9 @@ Add the following to the end of the file and save it:
 
 ```
 interface wlan0
+static ip_address=192.168.0.8/24
+static routers=192.168.0.1
+static domain_name_servers=192.168.0.1
 metric 0
 ```
 
@@ -48,5 +51,5 @@ IGSERVER noam.aprs2.net
 
 IGLOGIN N4DKN-10 12345
 
-PBEACON sendto=IG delay=0:30 every=60:00 symbol="igate" overlay=R lat=34^18.8840N long=084^04.6584W comment="RaspberryPi RTL-SDR IGate"
+PBEACON sendto=IG delay=0:30 every=60:00 symbol="igate" overlay=R lat=34^18.83N long=084^04.64W comment="Raspberry Pi RTL-SDR RTL2832U IGate via Comcast ///diverged.innocuous.upset"
 ```
