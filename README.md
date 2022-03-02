@@ -32,3 +32,21 @@ Test:
 ```
 $ ip route list
 ```
+
+## APRS IGate
+
+/home/pi/pigate-direwolf.conf
+
+```
+ADEVICE stdin null
+ARATE 24000
+CHANNEL 0
+
+MYCALL N4DKN-10
+
+IGSERVER noam.aprs2.net
+
+IGLOGIN N4DKN-10 12345
+
+PBEACON sendto=IG delay=0:30 every=60:00 symbol="igate" overlay=R lat=34^18.50N long=084^04.38W comment="RaspberryPi RTL-SDR IGate"
+```

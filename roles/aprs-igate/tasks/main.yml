@@ -1,0 +1,50 @@
+---
+
+- name: Install prerequisite software.
+  apt:
+    name:
+      - vim
+      - git
+      - wget
+      - curl
+      - unzip
+      - cloud-init
+      - ssh-import-id
+      - screen
+    install_recommends: no
+
+- name: Install APRS software.
+  apt:
+    name:
+      - direwolf
+      - rtl-sdr
+
+- name: Copy files.
+  copy:
+    src: "{{ role_path }}/files/"
+    dest: /
+
+- name: Make dir for aprs logs.
+  ansible.builtin.file:
+    path: /home/pi/aprslogs
+    owner: pi
+    group: pi
+    recurse: yes
+    state: directory
+
+- name: Verify script permissions.
+  ansible.builtin.file:
+    path: "{{ item }}"
+    owner: pi
+    group: pi
+    mode: '0744'
+  loop:
+    - /home/pi/dw-start-cron.sh
+    - /home/pi/pigate-start.sh
+
+- name: Verify pi directory ownership.
+  ansible.builtin.file:
+    path: /home/pi
+    owner: pi
+    group: pi
+    recurse: yes

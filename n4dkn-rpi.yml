@@ -31,6 +31,7 @@
     - role: deekayen.meshchat
       vars:
         local_meshchat_node: N4DKN-BM2XW-OMNI-204
+    - aprs-igate
 
   tasks:
     - name: Install unattended-upgrades.
