@@ -3,24 +3,10 @@
 - name: Install dependencies.
   apt:
     name:
-      - gpsd
-      - gpsd-clients
-      - python3-gps
       - chrony
       - python3-gi-cairo
   notify:
-    - enable gpsd
     - enable chronyd
-
-- name: Copy gpsd configuration.
-  template:
-    src: gpsd.j2
-    dest: /etc/default/gpsd
-    owner: root
-    group: root
-    mode: 0644
-  notify:
-    - enable gpsd
 
 - name: Copy chronyd configuration.
   template:

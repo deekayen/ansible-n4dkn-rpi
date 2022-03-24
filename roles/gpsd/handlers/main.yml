@@ -1,0 +1,6 @@
+---
+
+- name: enable gpsd
+  service:
+    name: gpsd
+    enabled: true

@@ -1,10 +1,5 @@
 ---
 
-- name: enable gpsd
-  service:
-    name: gpsd
-    enabled: true
-
 - name: enable chronyd
   service:
     name: chronyd

@@ -1,0 +1,42 @@
+---
+
+- hosts: all
+  become: true
+
+  vars:
+    ansible_user: pi
+
+  handlers:
+    - name: restart inetd
+      service:
+        name: inetd
+        state: restarted
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt: update_cache=true cache_valid_time=600
+      when: ansible_os_family == 'Debian'
+
+    - name: Install telnet.
+      apt:
+        name:
+          - telnet
+          - telnetd
+        state: present
+      notify: restart inetd
+
+  roles:
+    - chrony
+    - gpsd
+    - rss-bridge
+    - role: deekayen.meshchat
+      vars:
+        local_meshchat_node: N4DKN-BM2XW-OMNI-204
+    - aprs-igate
+
+  tasks:
+    - name: Install unattended-upgrades.
+      apt:
+        name:
+          - unattended-upgrades
+          - apt-listchanges

@@ -1,5 +1,11 @@
-[n4dkn-rpi2]
-192.168.0.8
+[n4dkn-1]
+192.168.0.6
 
-[n4dkn-rpi2:vars]
+[n4dkn-1:vars]
+ansible_user = pi
+
+[n4dkn-10]
+192.168.0.4
+
+[n4dkn-10:vars]
 ansible_user = pi

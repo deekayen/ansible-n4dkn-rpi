@@ -15,4 +15,3 @@ server {{ server }} iburst
 {% for pool in chrony_pool %}
 pool {{ pool }} iburst maxsources {{ chrony_maxsources }}
 {% endfor %}
-refclock SHM 0 offset 0.5 delay 0.2 refid NMEA
