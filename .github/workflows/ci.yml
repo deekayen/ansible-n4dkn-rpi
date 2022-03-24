@@ -9,7 +9,7 @@ name: CI
 
 defaults:
   run:
-    working-directory: 'n4dkn-rpi4'
+    working-directory: 'n4dkn-rpi'
 
 jobs:
 
