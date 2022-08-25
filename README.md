@@ -51,5 +51,5 @@ IGSERVER noam.aprs2.net
 
 IGLOGIN N4DKN-10 12345
 
-PBEACON sendto=IG delay=0:30 every=60:00 symbol="igate" overlay=R lat=34^18.83N long=084^04.64W comment="Raspberry Pi RTL-SDR RTL2832U IGate via Comcast ///diverged.innocuous.upset"
+PBEACON sendto=IG delay=0:30 every=10:00 symbol="igate" overlay=R lat=34^18.84N long=084^04.64W altitude=390 height=1278 dir=E comment="Silver City piGate ///stems.typists.attracts"
 ```
