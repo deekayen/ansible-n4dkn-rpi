@@ -1,0 +1,45 @@
+---
+
+- name: Download binary tarball.
+  ansible.builtin.unarchive:
+    src: https://releases.mattermost.com/7.7.1/mattermost-7.7.1-linux-amd64.tar.gz
+    dest: /opt
+    remote_src: true
+    creates: /opt/mattermost/bin/platform
+
+- name: Create mattermost data directory.
+  ansible.builtin.file:
+    path: /opt/mattermost/data
+    state: directory
+
+- name: Ensure group "mattermost" exists
+  ansible.builtin.group:
+    name: mattermost
+    state: present
+
+- name: Create user to run mattermost service.
+  ansible.builtin.user:
+    name: mattermost
+    system: yes
+    createhome: no
+
+- name: Change mattermost directory permissions
+  ansible.builtin.file:
+    path: /opt/mattermost
+    state: directory
+    owner: "mattermost"
+    group: "mattermost"
+    recurse: yes
+
+- name: Copy service config.
+  ansible.builtin.copy:
+    src: mattermost.service
+    dest: /lib/systemd/system/mattermost.service
+  notify:
+    - daemon-reload
+    - enable mattermost
+
+- name: Install mariadb-server.
+  ansible.builtin.apt:
+    name:
+      - mariadb-server

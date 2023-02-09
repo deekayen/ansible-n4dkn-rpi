@@ -1,0 +1,10 @@
+---
+
+- name: daemon-reload
+  command: systemctl daemon-reload
+
+- name: enable mattermost
+  service:
+    name: mattermost
+    state: started
+    enabled: yes
