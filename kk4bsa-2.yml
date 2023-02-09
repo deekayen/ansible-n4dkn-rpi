@@ -31,6 +31,7 @@
     - role: deekayen.meshchat
       vars:
         local_meshchat_node: KK4BSA-AR750-10-74-60
+    - mattermost
 
   tasks:
     - name: Install unattended-upgrades.

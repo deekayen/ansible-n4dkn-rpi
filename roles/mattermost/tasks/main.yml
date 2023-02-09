@@ -5,7 +5,7 @@
     src: https://releases.mattermost.com/7.7.1/mattermost-7.7.1-linux-amd64.tar.gz
     dest: /opt
     remote_src: true
-    creates: /opt/mattermost/bin/platform
+    creates: /opt/mattermost/bin/mattermost
 
 - name: Create mattermost data directory.
   ansible.builtin.file:
