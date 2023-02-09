@@ -1,7 +1,7 @@
 ---
 
 - name: Install dependencies.
-  apt:
+  ansible.builtin.apt:
     name:
       - chrony
       - python3-gi-cairo
@@ -9,7 +9,7 @@
     - enable chronyd
 
 - name: Copy chronyd configuration.
-  template:
+  ansible.builtin.template:
     src: chrony.conf.j2
     dest: /etc/chrony/chrony.conf
     owner: root

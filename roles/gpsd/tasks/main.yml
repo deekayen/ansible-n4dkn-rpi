@@ -1,7 +1,7 @@
 ---
 
 - name: Install dependencies.
-  apt:
+  ansible.builtin.apt:
     name:
       - gpsd
       - gpsd-clients
@@ -11,7 +11,7 @@
     - enable gpsd
 
 - name: Copy gpsd configuration.
-  template:
+  ansible.builtin.template:
     src: gpsd.j2
     dest: /etc/default/gpsd
     owner: root
