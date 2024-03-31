@@ -1,6 +1,7 @@
 ---
 
-- name: enable chronyd
-  service:
+- name: Enable chronyd
+  ansible.builtin.service:
     name: chronyd
     enabled: true
+    state: started

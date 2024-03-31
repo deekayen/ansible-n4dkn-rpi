@@ -8,7 +8,7 @@
       - python3-gps
       - python3-gi-cairo
   notify:
-    - enable gpsd
+    - Enable gpsd
 
 - name: Copy gpsd configuration.
   ansible.builtin.template:
@@ -16,9 +16,9 @@
     dest: /etc/default/gpsd
     owner: root
     group: root
-    mode: 0644
+    mode: '644'
   notify:
-    - enable gpsd
+    - Enable gpsd
 
 # lineinfile /etc/chrony/chrony.conf
 # refclock SHM 0 offset 0.5 delay 0.2 refid NMEA
