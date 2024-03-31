@@ -18,9 +18,9 @@ Add the following to the end of the file and save it:
 
 ```
 interface wlan0
-static ip_address=192.168.0.8/24
+static ip_address=192.168.0.4/24
 static routers=192.168.0.1
-static domain_name_servers=192.168.0.1
+static domain_name_servers=192.168.0.3 192.168.0.1
 metric 0
 ```
 
