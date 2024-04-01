@@ -34,7 +34,7 @@ gpsmon -n
 ```
 
 ```
-sudo "echo refclock SHM 0 offset 0.5 delay 0.2 refid NMEA" >> /etc/chrony/chrony.conf
+sudo "echo refclock SHM 0 delay 0.325 refid NMEA" >> /etc/chrony/chrony.conf
 ```
 
 ```
